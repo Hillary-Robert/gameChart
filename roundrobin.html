@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Round Robin Tournament</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Round Robin Tournament</h1>
+  <div id="team-entry">
+    <h2>Enter Team Names</h2>
+    <form id="teamForm">
+      <div id="teamInputs">
+        <input type="text" name="team[]" placeholder="Team 1" required>
+        <input type="text" name="team[]" placeholder="Team 2" required>
+      </div>
+      <button type="button" onclick="addTeamInput()">Add Team</button>
+      <button type="submit">Generate Schedule</button>
+    </form>
+  </div>
+  <div id="schedule" style="display: none;">
+    <h2>Match Schedule</h2>
+    <div id="scheduleOutput"></div>
+    <button onclick="goBack()">Edit Teams</button>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
