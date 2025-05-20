@@ -13,12 +13,23 @@ app.use(express.json());
 
 // Load users from JSON file
 function loadUsers() {
-    if (!fs.existsSync(USERS_FILE)) {
-        fs.writeFileSync(USERS_FILE, '[]');
+    try {
+        if (!fs.existsSync(USERS_FILE)) {
+            fs.writeFileSync(USERS_FILE, '[]');
+        }
+        const data = fs.readFileSync(USERS_FILE, 'utf8').trim();
+        if (!data) return [];
+        return JSON.parse(data);
+    } catch (err) {
+        console.error('⚠ Error loading users:', err.message);
+        return [];
     }
-    const data = fs.readFileSync(USERS_FILE, 'utf8');
-    return JSON.parse(data);
 }
+
+
+// For non existent pages
+
+app.get('/results', (req, res) => res.send('Results page coming soon'));
 
 // Save users to JSON file
 function saveUsers(users) {
@@ -37,19 +48,29 @@ app.get('/register', (req, res) => {
 
 // Handle registration
 app.post('/register', (req, res) => {
-    const users = loadUsers();
-    const { firstName, lastName, email, username, password, role } = req.body;
+    try {
+        const users = loadUsers();
+        const { firstName, lastName, email, username, password, role } = req.body;
 
-    const existing = users.find(u => u.username === username || u.email === email);
-    if (existing) {
-        return res.status(400).send('User already exists.');
+        console.log('📥 Registering user:', username);
+
+        const existing = users.find(u => u.username === username || u.email === email);
+        if (existing) {
+            console.warn('⚠ User already exists:', username);
+            return res.status(400).send('User already exists.');
+        }
+
+        users.push({ firstName, lastName, email, username, password, role });
+        saveUsers(users);
+
+        console.log('✅ User registered:', username);
+        res.redirect('/');
+    } catch (err) {
+        console.error('❌ Registration error:', err);
+        res.status(500).send('Server error during registration.');
     }
-
-    users.push({ firstName, lastName, email, username, password, role });
-    saveUsers(users);
-
-    res.redirect('/');
 });
+
 
 // Handle login
 app.post('/login', (req, res) => {
@@ -57,9 +78,13 @@ app.post('/login', (req, res) => {
     const users = loadUsers();
 
     const user = users.find(u => u.username === username && u.password === password);
+
     if (!user) {
+        console.warn('❌ Login failed for:', username);
         return res.status(401).send('Invalid username or password.');
     }
+
+    console.log('🟢 Logged in as:', username, '| Role:', user.role);
 
     // Redirect based on role
     switch (user.role.toLowerCase()) {
@@ -73,7 +98,7 @@ app.post('/login', (req, res) => {
             res.redirect('/organizer_dashboard.html');
             break;
         case 'player':
-            res.redirect('/player_dashboard.html');
+            res.redirect('/playerDashboard.html');
             break;
         default:
             res.status(400).send('Unknown role.');

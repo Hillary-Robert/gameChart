@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="/results">Results</a></li>
+      <li><a href="/upcoming">Upcoming Matches</a></li>
+      <li><a href="/statistics">Player Statistics</a></li>
+      <li><a href="/user-management">User Management</a></li>
+      <li><a href="/settings">System Settings</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Navigation -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="/register">Add User</a></li>
+      <li><a href="/modeplayer">Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Dashboard Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>Welcome, Admin!</h1>
+      <p>Manage users, review tournament statistics, and control system settings below.</p>
+
+      <!-- Overview -->
+      <div class="card">
+        <h3>User Overview</h3>
+        <p>Total Registered Users: <strong>32</strong></p>
+        <p>Pending Approvals: <strong>3</strong></p>
+      </div>
+
+      <!-- System Logs -->
+      <div class="card">
+        <h3>System Logs</h3>
+        <p>Last login: <strong>Today at 1:12 PM</strong></p>
+        <p>Recent Changes: <strong>Updated roles and reset passwords</strong></p>
+      </div>
+
+      <!-- Admin Tools -->
+      <div class="card">
+        <h3>Admin Tools</h3>
+        <ul>
+          <li><a href="/user-management">Manage Users</a></li>
+          <li><a href="/settings">Update System Settings</a></li>
+          <li><a href="/roundrobin">Generate Tournament</a></li>
+        </ul>
+      </div>
+
+      <!-- Chart Card -->
+      <div class="card">
+        <h3>User Distribution</h3>
+        <canvas id="userChart" width="400" height="200"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
