@@ -10,6 +10,11 @@
 </head>
 <body data-role="guest">
 
+  <script>
+    const settings = JSON.parse(localStorage.getItem('systemSettings'));
+    if (settings?.theme) document.body.classList.add(settings.theme);
+  </script>
+
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>Guest Panel</h2>

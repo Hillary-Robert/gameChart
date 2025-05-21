@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="user_management.js" defer></script>
+</head>
+<body data-role="admin">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+
+      <li><a href="/Admin_dashboard.html">Dashboard</a></li>
+      <li><a href="/results.html">Results</a></li>
+      <li><a href="/upcoming.html">Upcoming Matches</a></li>
+      <li><a href="/player_statistics.html">Player Statistics</a></li>
+      <li><a href="user_management.html">User Management</a></li>
+      <li><a href="/system_settings.html">System Settings</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Navigation -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="/register">Add User</a></li>
+      <li><a href="/modeplayer">Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>User Management</h1>
+      <p>Manage user roles, statuses, and account approvals.</p>
+
+      <div class="card">
+        <h3>All Users</h3>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="userTable">
+            <!-- Users will be populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

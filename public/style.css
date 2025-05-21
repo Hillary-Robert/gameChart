@@ -25,6 +25,16 @@ body {
   line-height: 1.6;
 }
 
+body.light {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
 /* Top Navigation Bar */
 .top-menu {
   width: 100%;
