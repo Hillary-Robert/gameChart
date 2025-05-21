@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+
   // Login Form Handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  
 
   // Login Type Toggle
   let loginType = 'guest';

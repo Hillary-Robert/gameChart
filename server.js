@@ -64,7 +64,7 @@ app.post('/register', (req, res) => {
         saveUsers(users);
 
         console.log('✅ User registered:', username);
-        res.redirect('/');
+        res.redirect('/login.html');
     } catch (err) {
         console.error('❌ Registration error:', err);
         res.status(500).send('Server error during registration.');
@@ -95,7 +95,7 @@ app.post('/login', (req, res) => {
             res.redirect('/guestDashboard.html');
             break;
         case 'organizer':
-            res.redirect('/organizerDashboard.html');
+            res.redirect('/organizer_dashboard.html');
             break;
         case 'player':
             res.redirect('/playerDashboard.html');
