@@ -1,18 +1,3 @@
 [
-  {
-    "firstName": "peter",
-    "lastName": "peter",
-    "email": "peter@gmail.com",
-    "username": "peter",
-    "password": "peter",
-    "role": "admin"
-  },
-  {
-    "firstName": "john",
-    "lastName": "john",
-    "email": "john@gmail.com",
-    "username": "john",
-    "password": "john",
-    "role": "player"
-  }
+  
 ]

@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guest Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body data-role="guest">
-  <div class="menu menu-guest">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Guest Panel</h2>
     <ul>
-      <li><a href="/results">Results</a></li>
-      <li><a href="/statistics">Player Statistics</a></li>
+      <li><a href="/results">🏆 View Results</a></li>
+      <li><a href="/statistics">📊 Player Statistics</a></li>
+      <li><a href="/">🔓 Logout</a></li>
     </ul>
   </div>
-  <div class="dashboard">
-    <h1>Welcome, Guest!</h1>
-    <p>You can view public tournament information here.</p>
-    <div class="chart-placeholder">[Chart Placeholder]</div>
+
+  <!-- Top Menu -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="/register">Sign Up</a></li>
+    </ul>
   </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>Welcome, Guest!</h1>
+      <p>You can view public tournament information here.</p>
+
+      <!-- Public Summary -->
+      <div class="card">
+        <h3>Public Summary</h3>
+        <p>Matches Played Today: <strong>14</strong></p>
+        <p>Ongoing Tournaments: <strong>3</strong></p>
+      </div>
+
+      <!-- Most Wins Chart -->
+      <div class="card">
+        <h3>Top 3 Players (Most Wins)</h3>
+        <canvas id="userChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

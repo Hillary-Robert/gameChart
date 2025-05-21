@@ -92,10 +92,10 @@ app.post('/login', (req, res) => {
             res.redirect('/admin_dashboard.html');
             break;
         case 'guest':
-            res.redirect('/guest_dashboard.html');
+            res.redirect('/guestDashboard.html');
             break;
         case 'organizer':
-            res.redirect('/organizer_dashboard.html');
+            res.redirect('/organizerDashboard.html');
             break;
         case 'player':
             res.redirect('/playerDashboard.html');

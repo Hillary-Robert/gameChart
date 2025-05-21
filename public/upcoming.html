@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming matches</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upcoming Matches</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="upcoming.js" defer></script>
 </head>
 <body>
-    <h2>Upcoming Matches</h2>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="/Admin_dashboard.html">Dashboard</a></li>
+      <li><a href="/results.html">Results</a></li>
+      <li><a href="/upcoming.html" class="active">Upcoming Matches</a></li>
+      <li><a href="/statistics">Player Statistics</a></li>
+      <li><a href="/user-management">User Management</a></li>
+      <li><a href="/settings">System Settings</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Navigation -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="/register">Add User</a></li>
+      <li><a href="/modeplayer">Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>Upcoming Matches</h1>
+      <p>View and manage all scheduled future matches.</p>
+
+      <!-- Upcoming Matches Table -->
+      <div class="card">
+        <h3>Scheduled Matches</h3>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Match</th>
+              <th>Date & Time</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="matchList">
+            <tr>
+              <td>Alice vs Ben</td>
+              <td>2025-05-25 14:00</td>
+              <td>Stadium A</td>
+              <td><button>Edit</button> <button>Delete</button></td>
+            </tr>
+            <!-- More rows dynamically inserted -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add Upcoming Match Form -->
+      <div class="card">
+        <h3>Schedule New Match</h3>
+        <form id="matchForm">
+          <label>Player 1:
+            <input type="text" id="player1" required />
+          </label>
+          <label>Player 2:
+            <input type="text" id="player2" required />
+          </label>
+          <label>Date & Time:
+            <input type="datetime-local" id="matchTime" required />
+          </label>
+          <label>Location:
+            <input type="text" id="location" required />
+          </label>
+          <button type="submit">Add Match</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>

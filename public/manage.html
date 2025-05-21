@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Schedule</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body data-role="organizer">
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Organizer Panel</h2>
+    <ul>
+      <li><a href="/organizer_dashboard.html">🏠 Dashboard</a></li>
+      <li><a href="/tournament_setup.html">🏗 Tournament Setup</a></li>
+      <li><a href="/manage.html">🗓 Manage Schedule</a></li>
+      <li><a href="/register">🧾 Register Players</a></li>
+      <li><a href="/">🔓 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Menu -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="/roundrobin">Generate Round Robin</a></li>
+      <li><a href="/modeplayer">Assign Match Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+
+      <h1>Manage Match Schedule</h1>
+      <p>Use this panel to schedule new matches and preview upcoming fixtures.</p>
+
+      <!-- Match Scheduling Form -->
+      <form id="matchForm">
+        <div class="form-group">
+          <label for="player1">Player 1:</label>
+          <input type="text" id="player1" name="player1" placeholder="e.g. Alice" required />
+        </div>
+        <div class="form-group">
+          <label for="player2">Player 2:</label>
+          <input type="text" id="player2" name="player2" placeholder="e.g. Bob" required />
+        </div>
+        <div class="form-group">
+          <label for="matchTime">Match Time:</label>
+          <input type="datetime-local" id="matchTime" name="matchTime" required />
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" placeholder="e.g. Court 3" required />
+        </div>
+        <button type="submit">➕ Add Match</button>
+      </form>
+
+      <!-- Match List Display -->
+      <div class="card">
+        <h3>📋 Scheduled Matches</h3>
+        <ul id="matchList" class="match-list"></ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

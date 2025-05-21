@@ -1,11 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match Results</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="results.js"></script>
 </head>
 <body>
-    <h2>Results</h2>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="/Admin_dashboard.html">Dashboard</a></li>
+      <li><a href="/results.html" class="active">Results</a></li>
+      <li><a href="/upcoming.html">Upcoming Matches</a></li>
+      <li><a href="/statistics">Player Statistics</a></li>
+      <li><a href="/user-management">User Management</a></li>
+      <li><a href="/settings">System Settings</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Navigation -->
+  <div class="top-menu">
+    <ul>
+      
+      <li><a href="/register">Add User</a></li>
+      <li><a href="/modeplayer">Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>Match Results</h1>
+      <p>Review final match results and update outcomes as needed.</p>
+
+      <!-- Match Results Table -->
+      <div class="card">
+        <h3>Recent Matches</h3>
+        <table class="results-table">
+          <thead >
+            <tr>
+              <th>Match</th>
+              <th>Date</th>
+              <th>Score</th>
+              <th>Winner</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice vs Ben</td>
+              <td>2025-05-20</td>
+              <td>3 - 2</td>
+              <td>Alice</td>
+              <td><button>Edit</button> <button>Delete</button></td>
+            </tr>
+            <tr>
+              <td>Chika vs Dana</td>
+              <td>2025-05-19</td>
+              <td>1 - 3</td>
+              <td>Dana</td>
+              <td><button>Edit</button> <button>Delete</button></td>
+            </tr>
+            <!-- More rows can be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add New Result Form -->
+      <div class="card">
+        <h3>Add Match Result</h3>
+        <form id="resultForm">
+          <label>Player 1:
+            <input type="text" id="player1" required />
+          </label>
+          <label>Player 2:
+            <input type="text" id="player2" required />
+          </label>
+          <label>Score:
+            <input type="text" id="score" placeholder="e.g. 2 - 1" required />
+          </label>
+          <label>Winner:
+            <input type="text" id="winner" required />
+          </label>
+          <label>Date:
+            <input type="date" id="matchDate" required />
+          </label>
+          <button type="submit" style="margin-top: 2rem;">Submit Result</button>
+        </form>
+        <ul id="resultsList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="results.js"></script>
 </body>
 </html>

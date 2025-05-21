@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournament Setup</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-role="organizer">
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Organizer Panel</h2>
+    <ul>
+      <li><a href="/organizer_dashboard.html">🏠 Dashboard</a></li>
+      <li><a href="tournament_setup.html">🏗 Tournament Setup</a></li>
+      <li><a href="/manage.html">🗓 Manage Schedule</a></li>
+      <li><a href="/register">🧾 Register Players</a></li>
+      <li><a href="/">🔓 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Top Menu -->
+  <div class="top-menu">
+    <ul>
+      <li><a href="/roundrobin">Generate Round Robin</a></li>
+      <li><a href="/modeplayer">Assign Match Modes</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="dashboard">
+      <h1>Set Up a New Tournament</h1>
+      <p>Fill out the form below to generate your tournament bracket and preview it instantly.</p>
+
+      <form id="tournamentForm">
+        <div class="form-group">
+          <label for="tournamentName">Tournament Name:</label>
+          <input type="text" id="tournamentName" name="tournamentName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="tournamentType">Tournament Format:</label>
+          <select id="tournamentType" name="tournamentType" required>
+            <option value="">-- Select Format --</option>
+            <option value="elimination">Elimination</option>
+            <option value="roundrobin">Round Robin</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="numPlayers">Number of Players:</label>
+          <input type="number" id="numPlayers" name="numPlayers" min="2" max="16" required />
+        </div>
+
+        <!-- Dynamically generated player ID inputs -->
+        <div id="playerIds" class="form-group"></div>
+
+        <button type="submit">Generate Bracket</button>
+      </form>
+
+      <!-- Bracket or schedule will be displayed here -->
+      <div id="bracket-container"></div>
+    </div>
+  </div>
+
+</body>
+</html>
